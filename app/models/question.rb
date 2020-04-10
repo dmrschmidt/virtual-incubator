@@ -3,18 +3,22 @@ class Question < ApplicationRecord
   has_many :answers
 
   def tags
-    [location.sample, phase.sample, industry.sample]
+    [Question.location.sample, Question.phase.sample, Question.industry.sample]
   end
 
-  def location
+  def self.tags
+    location + phase + industry
+  end
+
+  def self.location
     ["Cairo, Egypt", "São Paulo, Brazil"]
   end
 
-  def phase
+  def self.phase
     ["pre-seed", "MVP", "Series-A"]
   end
 
-  def industry
+  def self.industry
     ["EdTech", "FinTech", "Healthcare"]
   end
 end
