@@ -1,4 +1,6 @@
-Hello <%= current_user.email %>
+<p id="notice"><%= notice %></p>
+
+<h1>Questions</h1>
 
 <table>
   <thead>
@@ -23,3 +25,7 @@ Hello <%= current_user.email %>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Question', new_question_path %>
