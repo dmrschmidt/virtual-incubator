@@ -22,13 +22,20 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <%= link_to "Ask a Question", new_question_path %>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
 
     <main role="main" class="flex-shrink-0">
       <div class="container">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <p id="notice" class="notice"><%= notice %></p>
+        <p id="alert" class="alert"><%= alert %></p>
 
         <%= yield %>
       </div>

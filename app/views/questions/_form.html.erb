@@ -12,21 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label :title, class: "sr-only" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_field :text %>
+    <%= form.label :text, class: "sr-only" %>
+    <%= form.text_area :text, class: "form-control", placeholder: "Your Question", rows: "10"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Ask Question", class: "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>
