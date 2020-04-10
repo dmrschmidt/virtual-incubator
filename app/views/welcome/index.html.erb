@@ -12,11 +12,17 @@
     <% @questions.each do |question| %>
       <div class="question mb-4 p-2">
         <div class="row">
-          <div class="col-2"><%= question.user.first_name %></div>
+          <div class="col-2">
+            <img src="/img/<%= question.user.role %>.jpg" class="rounded-circle" width="50" height="50" />
+            <%= question.user.first_name %>
+          </div>
           <div class="col-10">
             <strong><%= question.title %></strong><br />
             <%= truncate(question.text, length: 50) %><br />
-            <%= link_to 'Find out more', question %>
+            <%= link_to 'Find out more', question %><br />
+            <% question.tags.each do |tag| %>
+              <span class="badge badge-pill badge-primary"><%= tag %></span>
+            <% end %>
           </div>
         </div>
       </div>
