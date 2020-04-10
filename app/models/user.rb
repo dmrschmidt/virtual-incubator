@@ -15,6 +15,6 @@ class User < ApplicationRecord
   end
 
   def first_name
-    mentee? ? "Fabio" : "Mary"
+    mentee? ? "Mentee Fabio" : "Mentor Mary"
   end
 end

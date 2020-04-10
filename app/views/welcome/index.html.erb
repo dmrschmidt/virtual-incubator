@@ -6,7 +6,11 @@
   </div>
 
   <div class="col-9">
-    <h2>Help mentees with their problems</h2>
+    <% if current_user.mentor? %>
+      <h2>Help mentees with their problems</h2>
+    <% else %>
+      <h2>Check out Questions by Mentees</h2>
+    <% end %>
     <div class="questions-counter"><%= @questions.count %> Questions</div>
 
     <% @questions.each do |question| %>
