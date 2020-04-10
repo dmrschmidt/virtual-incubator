@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :questions
+
+  def mentor?
+    role == 'mentor'
+  end
+
+  def mentee?
+    role == 'mentee'
+  end
 end

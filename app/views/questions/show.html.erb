@@ -11,7 +11,15 @@
 
 <% @question.answers.each do |answer| %>
   <div class="answer">
-    <div class="answer-user"><strong>answer by: </strong><%= answer.user.email %></div>
+    <div class="answer-user">
+      <strong>answer by: </strong>
+      <%= answer.user.email %>
+      <% if current_user.mentee? %>
+        <a href="https://us04web.zoom.us/j/7235957074" target="_blank">
+          Request Video Session
+        </a>
+      <% end %>
+    </div>
     <div class="answer-text"><%= answer.text %></div>
   </div>
 <% end %>
