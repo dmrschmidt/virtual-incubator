@@ -13,7 +13,7 @@ Hello <%= current_user.email %>
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.user_id %></td>
+        <td><%= question.user.email %></td>
         <td><%= question.title %></td>
         <td><%= truncate(question.text, length: 50) %></td>
         <td><%= link_to 'Find out more', question %></td>
