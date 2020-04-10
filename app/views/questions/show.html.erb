@@ -1,27 +1,33 @@
+<div class="container pt-5"></div>
 
-<h1>
-  <%= @question.title %>
-</h1>
-<strong>asked by:</strong>
-<%= @question.user.email %>
-
-<p>
-  <%= @question.text %>
-</p>
-
-<% @question.answers.each do |answer| %>
-  <div class="answer">
-    <div class="answer-user">
-      <strong>answer by: </strong>
-      <%= answer.user.email %>
-      <% if current_user.mentee? %>
-        <a href="https://us04web.zoom.us/j/7235957074" target="_blank">
-          Request Video Session
-        </a>
-      <% end %>
+<div class="container pt-5 mt-5">
+  <div class="mt-5 mb-4">
+    <h1>
+      <%= @question.title %>
+    </h1>
+    <p>
+      <%= @question.text %>
+    </p>
+    <div class="asker">
+      <strong>asked by:</strong>
+      <%= @question.user.first_name %>
     </div>
-    <div class="answer-text"><%= answer.text %></div>
   </div>
-<% end %>
 
-<%= render 'answers/form', answer: @answer, question: @question %>
+  <% @question.answers.each do |answer| %>
+    <div class="answer mb-3 p-2">
+      <div class="answer-user">
+        <img src="/img/<%= answer.user.role %>.jpg" class="rounded-circle" width="50" height="50" />
+        <span class="answer-name"><%= answer.user.first_name %></span>
+        <% if current_user.mentee? %>
+          <a href="https://us04web.zoom.us/j/7235957074" target="_blank">
+            Request Video Session
+          </a>
+        <% end %>
+      </div>
+      <div class="answer-text"><%= answer.text %></div>
+    </div>
+  <% end %>
+
+  <%= render 'answers/form', answer: @answer, question: @question %>
+</div>

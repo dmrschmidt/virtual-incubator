@@ -1,3 +1,16 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.answer {
+  background-color: #f7f7f7;
+  border-radius: 4px;
+}
+
+.asker {
+  text-align: right;
+}
+
+.answer-name {
+  font-size: 2em;
+}
