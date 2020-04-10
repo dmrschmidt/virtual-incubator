@@ -10,9 +10,11 @@
 User.create! do |u|
   u.email     = 'mentor@mentor.com'
   u.password    = 'password'
+  u.role = 'mentor'
 end
 
 User.create! do |u|
   u.email     = 'mentee@startup.com'
   u.password    = 'password'
+  u.role = 'mentee'
 end
