@@ -31,8 +31,8 @@
               <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
             </li>
           </ul>
-          <img src="/img/<%= current_user.role %>.jpg" class="rounded-circle" width="40" height="40" />
-          <h2 class="pl-4 name"><%= current_user.first_name %></h2>
+          <img src="/img/<%= current_user&.role %>.jpg" class="rounded-circle" width="40" height="40" />
+          <h2 class="pl-4 name"><%= current_user&.first_name %></h2>
         </div>
       </nav>
     </header>
