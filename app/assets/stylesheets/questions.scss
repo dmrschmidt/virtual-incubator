@@ -2,9 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.title .badge {
+  font-size: 0.3em;
+}
+
 .answer {
   background-color: #f7f7f7;
   border-radius: 4px;
+}
+
+.video {
+  float: right;
 }
 
 .asker {

@@ -2,8 +2,11 @@
 
 <div class="container pt-5 mt-5">
   <div class="mt-5 mb-4">
-    <h1>
+    <h1 class="title">
       <%= @question.title %>
+      <% @question.tags.each do |tag| %>
+        <span class="badge badge-pill badge-primary"><%= tag %></span>
+      <% end %>
     </h1>
     <p>
       <%= @question.text %>
@@ -16,11 +19,11 @@
 
   <% @question.answers.each do |answer| %>
     <div class="answer mb-3 p-2">
-      <div class="answer-user">
+      <div class="answer-user mb-3">
         <img src="/img/<%= answer.user.role %>.jpg" class="rounded-circle" width="50" height="50" />
         <span class="answer-name"><%= answer.user.first_name %></span>
         <% if current_user.mentee? %>
-          <a href="https://us04web.zoom.us/j/7235957074" target="_blank">
+          <a href="https://us04web.zoom.us/j/7235957074" class="video btn btn-sm btn-primary" target="_blank">
             Request Video Session
           </a>
         <% end %>
