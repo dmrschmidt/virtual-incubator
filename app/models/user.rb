@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def mentee?
     role == 'mentee'
   end
+
+  def first_name
+    mentee? ? "Fabio" : "Mary"
+  end
 end

@@ -1,23 +1,22 @@
-Hello <%= current_user.email %>
+<div class="row">
+  <div class="col-3">
+    <img src="/img/<%= current_user.role %>.jpg" class="rounded-circle" width="200" height="200" />
+    <h4 class="mt-4">Hello <%= current_user.first_name %>!</h4>
+    <a href="#">edit your profile</a>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="col-9">
+    <h2>Help mentees with their problems</h2>
+    <div class="questions-counter"><%= @questions.count %> Questions</div>
 
-  <tbody>
     <% @questions.each do |question| %>
-      <tr>
+      <div class="quesion">
         <td><%= question.user.email %></td>
         <td><%= question.title %></td>
         <td><%= truncate(question.text, length: 50) %></td>
         <td><%= link_to 'Find out more', question %></td>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+
+  </div>
+</div>
