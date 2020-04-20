@@ -1,6 +1,6 @@
 <div class="container">
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "new_user") do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login_user" }) do |f| %>
     <img class="mb-4" src="/img/logo.svg" alt="" width="100" height="100">
 
     <%= f.label :email, class: "sr-only" %>

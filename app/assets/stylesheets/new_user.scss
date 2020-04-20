@@ -1,0 +1,39 @@
+.new_user {
+  width: 380px;
+  max-width: 380px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.new_user .checkbox {
+  font-weight: 400;
+}
+
+.new_user .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.new_user .form-control:focus {
+  z-index: 2;
+}
+
+.new_user input[type="password"].initial {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.new_user input[type="password"].confirmation {
+  margin-bottom: 20px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.new_user input[type="email"] {
+  margin-bottom: 20px;
+}
