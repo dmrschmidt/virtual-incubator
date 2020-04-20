@@ -55,8 +55,7 @@
               </li>
             </ul>
             <%= link_to(user_profile_path(current_user)) do %>
-            <img src="<%= gravatar_url current_user, 60 %>" class="rounded-circle d-none d-md-block" width="30" height="30" alt="<%= current_user.full_name %> picture" />
-            <h2 class="name"><%= current_user.full_name %></h2>
+              <img src="<%= gravatar_url current_user, 60 %>" class="rounded-circle d-none d-md-block" width="30" height="30" alt="<%= current_user.full_name %> picture" />
             <% end %>
           </div>
         <% end %>

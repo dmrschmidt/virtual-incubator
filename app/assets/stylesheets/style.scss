@@ -8,6 +8,7 @@ body {
   background: -moz-linear-gradient(148deg, rgba(78,85,255,1) -10%, rgba(189,147,201,1) 50%, rgba(214,36,36,0) 120%);
   background: -webkit-linear-gradient(148deg, rgba(78,85,255,1) -10%, rgba(189,147,201,1) 50%, rgba(214,36,36,0) 120%);
   background: linear-gradient(148deg, rgba(78,85,255,1) -10%, rgba(189,147,201,1) 50%, rgba(214,36,36,0) 120%);
+  background-attachment: fixed;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4e55ff",endColorstr="#d62424",GradientType=1);
   display: -ms-flexbox;
   display: -webkit-box;
