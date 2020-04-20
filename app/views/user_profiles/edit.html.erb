@@ -1,3 +1,25 @@
-<div class="mb-4 pill p-4">
-  Hey <%= current_user.full_name %>!
+<div class="row">
+  <div class="col-12">
+    <div class="mb-4 p-4 pill">
+      <h4>Hey <%= current_user.full_name %>!<h4>
+
+      <%= form_for(@profile, url: new_user_profile_path, html: { class: "" }) do |f| %>
+        <h5>Tell us more about yourself<h5>
+        <div class="field">
+          <%= f.label :email, class: "sr-only" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, class: "sr-only" %>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Save", class: "btn btn-lg btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
 </div>
