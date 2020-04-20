@@ -4,6 +4,11 @@ body {
 }
 
 body {
+  background: rgb(78,85,255);
+  background: -moz-linear-gradient(148deg, rgba(78,85,255,1) -10%, rgba(189,147,201,1) 50%, rgba(214,36,36,0) 120%);
+  background: -webkit-linear-gradient(148deg, rgba(78,85,255,1) -10%, rgba(189,147,201,1) 50%, rgba(214,36,36,0) 120%);
+  background: linear-gradient(148deg, rgba(78,85,255,1) -10%, rgba(189,147,201,1) 50%, rgba(214,36,36,0) 120%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4e55ff",endColorstr="#d62424",GradientType=1);
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -12,12 +17,17 @@ body {
   font-weight: 400;
 }
 
-.navbar .name {
-  color: white;
-  line-height: 1.5;
-  font-size: 16px;
-  padding: .5rem;
-  margin: 0;
+.navbar {
+  background-color: rgba(196, 196, 196, 0.7);
+  backdrop-filter: blur(4px) brightness(140%);
+
+  .name {
+    color: white;
+    line-height: 1.5;
+    font-size: 16px;
+    padding: .5rem;
+    margin: 0;
+  }
 }
 
 main > .container {
@@ -31,4 +41,9 @@ main > .container {
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.pill {
+  background-color: white;
+  border-radius: 5px;
 }

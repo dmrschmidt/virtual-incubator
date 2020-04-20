@@ -1,35 +1,37 @@
-.login_user {
-  width: 380px;
-  max-width: 380px;
-  padding: 15px;
+ .login_user {
+  max-width: 400px;
   margin: 0 auto;
   text-align: center;
-}
 
-.login_user .checkbox {
-  font-weight: 400;
-}
+  h2 {
+    color: #6F6666;
+  }
 
-.login_user .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
-}
+  .checkbox {
+    font-weight: 400;
+  }
 
-.login_user .form-control:focus {
-  z-index: 2;
-}
+  .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
 
-.login_user input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
+  .form-control:focus {
+    z-index: 2;
+  }
 
-.login_user input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }

@@ -10,15 +10,15 @@
   </p>
   <div class="asker">
     <strong>asked by:</strong>
-    <%= @question.user.first_name %>
+    <%= @question.user.full_name %>
   </div>
 </div>
 
 <% @question.answers.each do |answer| %>
   <div class="answer mb-3 p-2">
     <div class="answer-user mb-3">
-      <img src="/img/<%= answer.user.role %>.jpg" class="rounded-circle" width="50" height="50" alt="<%= current_user.first_name %> picture" />
-      <span class="answer-name"><%= answer.user.first_name %></span>
+      <img src="<%= gravatar_url answer.user, 100 %>" class="rounded-circle" width="50" height="50" alt="<%= answer.user.full_name %> picture" />
+      <span class="answer-name"><%= answer.user.full_name %></span>
       <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
       <% if current_user.mentee? %>
         <a href="https://us04web.zoom.us/j/7235957074" class="video btn btn-sm btn-primary" target="_blank">

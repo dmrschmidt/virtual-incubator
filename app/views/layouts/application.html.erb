@@ -39,25 +39,25 @@
 
     <header>
       <!-- Fixed navbar -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <a class="navbar-brand" href="/"><img src="/img/logo-new.png" height="30" alt="Virtual Incubator" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <%= link_to "Ask a Question", new_question_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
-            </li>
-          </ul>
-          <% if current_user %>
-            <img src="/img/<%= current_user.role %>.jpg" class="rounded-circle d-none d-md-block" width="30" height="30" alt="<%= current_user.first_name %> picture" />
-            <h2 class="name"><%= current_user.first_name %></h2>
-          <% end %>
-        </div>
+        <% if current_user %>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link_to "Ask a Question", new_question_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
+              </li>
+            </ul>
+            <img src="<%= gravatar_url current_user, 60 %>" class="rounded-circle d-none d-md-block" width="30" height="30" alt="<%= current_user.full_name %> picture" />
+            <h2 class="name"><%= current_user.full_name %></h2>
+          </div>
+        <% end %>
       </nav>
     </header>
 

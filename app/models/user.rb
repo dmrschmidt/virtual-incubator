@@ -6,15 +6,14 @@ class User < ApplicationRecord
 
   has_many :questions
 
+  validates_presence_of :full_name
+
   def mentor?
     role == 'mentor'
   end
 
   def mentee?
-    role == 'mentee'
+    !mentor?
   end
 
-  def first_name
-    mentee? ? "Mentee Fabio" : "Mentor Mary"
-  end
 end

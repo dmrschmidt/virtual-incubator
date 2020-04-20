@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <h4 class="mt-4 mb-3">Hello <%= current_user.first_name %>!</h4>
+    <h4 class="mt-4 mb-3">Hello <%= current_user.full_name %>!</h4>
     <h5 class="mt-5">Filter</h5>
     <% Question.tags.each do |tag| %>
       <div class="custom-control custom-checkbox">
@@ -21,9 +21,9 @@
     <% @questions.each do |question| %>
       <div class="question mb-4 pt-4 pb-2">
         <div class="header mb-3">
-          <img src="/img/<%= question.user.role %>.jpg" class="rounded-circle profile" width="50" height="50" alt="<%= current_user.first_name %> picture" />
+          <img src="<%= gravatar_url question.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= question.user.full_name %> picture" />
           <div class="details">
-            <span class="title"><%= question.user.first_name %></span><br />
+            <span class="title"><%= question.user.full_name %></span><br />
             <span class="text-muted">Asked <%= question.created_at %></span>
           </div>
         </div>

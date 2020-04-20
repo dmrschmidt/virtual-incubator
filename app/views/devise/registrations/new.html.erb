@@ -1,13 +1,15 @@
 <div class="container">
-  <h2>Sign up</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "new_user") do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "new_user pill p-4" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <img class="mb-4" src="/img/logo-new-grey.png" alt="Virtual Incubator" height="30">
+    <h2 class="mb-4">Sign up</h2>
+
+    <%= f.label :full_name, class: "sr-only" %>
+    <%= f.text_field :full_name, autofocus: true, autocomplete: "name", placeholder: "Full name", class: "form-control" %>
 
     <%= f.label :email, class: "sr-only" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
+    <%= f.email_field :email, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
 
     <%= f.label :password, class: "sr-only" %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control initial" %>
@@ -18,7 +20,8 @@
     <div class="actions">
       <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
     </div>
+
+    <%= render "devise/shared/links" %>
   <% end %>
 
-  <%= render "devise/shared/links" %>
 </div>

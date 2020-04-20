@@ -1,7 +1,7 @@
 <div class="container">
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login_user" }) do |f| %>
-    <img class="mb-4" src="/img/logo-new-grey.png" alt="Virtual Incubator" height="30">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login_user pill p-4" }) do |f| %>
+    <h2 class="mb-4">Log in</h2>
 
     <%= f.label :email, class: "sr-only" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
@@ -12,7 +12,8 @@
     <div class="actions">
       <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
     </div>
+
+    <%= render "devise/shared/links" %>
   <% end %>
 
-  <%= render "devise/shared/links" %>
 </div>
