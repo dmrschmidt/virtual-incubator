@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html class="h-100">
+<html lang="en" class="h-100">
   <head>
     <title>VirtualIncubator</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -41,8 +43,10 @@
 
     <main role="main" class="flex-shrink-0">
       <div class="container">
-        <p id="notice" class="notice"><%= notice %></p>
-        <p id="alert" class="alert"><%= alert %></p>
+        <div class="notifications">
+          <p id="notice" class="notice"><%= notice %></p>
+          <p id="alert" class="alert"><%= alert %></p>
+        </div>
 
         <%= yield %>
       </div>

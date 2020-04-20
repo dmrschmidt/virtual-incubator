@@ -1,37 +1,33 @@
-<div class="container pt-5"></div>
-
-<div class="container pt-5 mt-5">
-  <div class="mt-5 mb-4">
-    <h1 class="title">
-      <%= @question.title %>
-      <% @question.tags.each do |tag| %>
-        <span class="badge badge-pill badge-primary"><%= tag %></span>
-      <% end %>
-    </h1>
-    <p>
-      <%= @question.text %>
-    </p>
-    <div class="asker">
-      <strong>asked by:</strong>
-      <%= @question.user.first_name %>
-    </div>
+<div class="mb-4">
+  <h1 class="title">
+    <%= @question.title %>
+    <% @question.tags.each do |tag| %>
+      <span class="badge badge-pill badge-primary"><%= tag %></span>
+    <% end %>
+  </h1>
+  <p>
+    <%= @question.text %>
+  </p>
+  <div class="asker">
+    <strong>asked by:</strong>
+    <%= @question.user.first_name %>
   </div>
-
-  <% @question.answers.each do |answer| %>
-    <div class="answer mb-3 p-2">
-      <div class="answer-user mb-3">
-        <img src="/img/<%= answer.user.role %>.jpg" class="rounded-circle" width="50" height="50" />
-        <span class="answer-name"><%= answer.user.first_name %></span>
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <% if current_user.mentee? %>
-          <a href="https://us04web.zoom.us/j/7235957074" class="video btn btn-sm btn-primary" target="_blank">
-            Request Video Session
-          </a>
-        <% end %>
-      </div>
-      <div class="answer-text"><%= answer.text %></div>
-    </div>
-  <% end %>
-
-  <%= render 'answers/form', answer: @answer, question: @question %>
 </div>
+
+<% @question.answers.each do |answer| %>
+  <div class="answer mb-3 p-2">
+    <div class="answer-user mb-3">
+      <img src="/img/<%= answer.user.role %>.jpg" class="rounded-circle" width="50" height="50" alt="<%= current_user.first_name %> picture" />
+      <span class="answer-name"><%= answer.user.first_name %></span>
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+      <% if current_user.mentee? %>
+        <a href="https://us04web.zoom.us/j/7235957074" class="video btn btn-sm btn-primary" target="_blank">
+          Request Video Session
+        </a>
+      <% end %>
+    </div>
+    <div class="answer-text"><%= answer.text %></div>
+  </div>
+<% end %>
+
+<%= render 'answers/form', answer: @answer, question: @question %>
