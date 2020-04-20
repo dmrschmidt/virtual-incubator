@@ -12,33 +12,34 @@
     </div>
   </div>
 
-  <div class="col-md-9 pill p-4">
-    <% if current_user.mentor? %>
-      <h2>Help mentees with their problems</h2>
-    <% else %>
-      <h2>Check out Questions by Mentees</h2>
-    <% end %>
-    <div class="questions-counter text-muted mb-4"><%= @questions.count %> Questions</div>
+  <div class="col-md-9">
+    <div class="pill p-4">
+      <% if current_user.mentor? %>
+        <h2>Help mentees with their problems</h2>
+      <% else %>
+        <h2>Check out Questions by Mentees</h2>
+      <% end %>
+      <div class="questions-counter text-muted mb-4"><%= @questions.count %> Questions</div>
 
-    <% @questions.each do |question| %>
-      <div class="question mb-4 pt-4 pb-2">
-        <div class="header mb-3">
-          <img src="<%= gravatar_url question.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= question.user.full_name %> picture" />
-          <div class="details">
-            <span class="title"><%= question.user.full_name %></span><br />
-            <span class="text-muted">Asked <%= question.created_at %></span>
+      <% @questions.each do |question| %>
+        <div class="question mb-4 pt-4 pb-2">
+          <div class="header mb-3">
+            <img src="<%= gravatar_url question.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= question.user.full_name %> picture" />
+            <div class="details">
+              <span class="title"><%= question.user.full_name %></span><br />
+              <span class="text-muted">Asked <%= question.created_at %></span>
+            </div>
+          </div>
+          <div class="text">
+            <strong><%= question.title %></strong><br />
+            <%= truncate(question.text, length: 50) %><br />
+            <%= link_to 'Find out more', question %><br />
+            <% question.tags.each do |tag| %>
+              <span class="badge badge-pill badge-primary"><%= tag %></span>
+            <% end %>
           </div>
         </div>
-        <div class="text">
-          <strong><%= question.title %></strong><br />
-          <%= truncate(question.text, length: 50) %><br />
-          <%= link_to 'Find out more', question %><br />
-          <% question.tags.each do |tag| %>
-            <span class="badge badge-pill badge-primary"><%= tag %></span>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-
+      <% end %>
+    </div>
   </div>
 </div>
