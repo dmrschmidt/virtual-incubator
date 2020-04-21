@@ -7,7 +7,7 @@ class UserProfile < ApplicationRecord
   end
 
   def skills_csv
-    skills.join(', ')
+    skills&.join(', ')
   end
 
   def self.team_sizes
