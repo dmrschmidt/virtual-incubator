@@ -1,7 +1,13 @@
-<div class="row">
+<div class="row profile-edit">
   <div class="col-12">
     <div class="mb-4 p-4 pill">
-      <h4>Hey <%= current_user.full_name %>!</h4>
+        <div class="d-flex justify-content-center">
+          <div class="align-items-center justify-content-center text-center">
+          <img src="<%= gravatar_url current_user, 200 %>" class="rounded-circle" width="100" height="100" alt="<%= current_user.full_name %> picture" /><br>
+          Hey <strong><%= current_user.full_name %></strong>!<br>
+          <a href="https://en.gravatar.com/support/about-profiles/" target="_blank" class="gravatar font-weight-light">change your profile picture</a><br>
+          </div>
+        </div>
 
       <%= form_with(model: @profile, local: true) do |f| %>
         <h5 class="pt-3 pb-2">Tell us more about yourself</h5>
