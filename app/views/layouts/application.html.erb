@@ -65,51 +65,7 @@
     <main role="main" class="flex-shrink-0 pb-5">
       <div class="container">
 
-        <% unless notice.blank? && alert.blank? %>
-          <div class="notifications">
-            <div aria-live="polite" aria-atomic="true" style="position: absolute; top: 65px; left: 0px; min-width: 300px; min-height: 200px; z-index: 10;">
-              <div style="position: absolute; top: 0; left: 10px;">
-
-                <% unless notice.blank? %>
-                  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
-                    <div class="toast-header">
-                      <img src="/img/favicon/<%= Rails.env %>/favicon-32x32.png" width="16" height="16" class="rounded mr-2" alt="The Virtual Incubator">
-                      <strong class="mr-auto">Notification</strong>
-                      <small class="text-muted">just now</small>
-                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="toast-body">
-                      <%= notice %>
-                    </div>
-                  </div>
-                <% end %>
-
-                <% unless alert.blank? %>
-                  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
-                    <div class="toast-header">
-                      <img src="/img/favicon/<%= Rails.env %>/favicon-32x32.png" width="16" height="16" class="rounded mr-2" alt="The Virtual Incubator">
-                      <strong class="mr-auto">Notification</strong>
-                      <small class="text-muted">just now</small>
-                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="toast-body">
-                      <%= alert %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <script>
-            $(document).ready(function(){
-              $(".toast").toast('show');
-            });
-          </script>
-        <% end %>
+        <%= render "layouts/notifications" %>
 
         <div class="row mt-4 mb-1">
           <div class="offset-lg-9 col-lg-3 offset-sm-4 col-sm-8">
