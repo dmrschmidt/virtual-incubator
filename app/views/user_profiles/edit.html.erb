@@ -1,22 +1,40 @@
 <div class="row">
   <div class="col-12">
     <div class="mb-4 p-4 pill">
-      <h4>Hey <%= current_user.full_name %>!<h4>
+      <h4>Hey <%= current_user.full_name %>!</h4>
 
-      <%= form_for(@profile, url: new_user_profile_path, html: { class: "" }) do |f| %>
-        <h5>Tell us more about yourself<h5>
+      <%= form_with(model: @profile, local: true) do |f| %>
+        <h5 class="pt-3 pb-2">Tell us more about yourself</h5>
+
+        <% if @profile.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+            <ul>
+              <% @profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
         <div class="field">
-          <%= f.label :email, class: "sr-only" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
+          <%= f.label :job_title, class: "sr-only" %>
+          <%= f.text_field :job_title, autofocus: true, placeholder: "Job Title", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :password, class: "sr-only" %>
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control" %>
+          <%= f.label :location, class: "sr-only" %>
+          <%= f.text_field :location, autocomplete: "country-name", placeholder: "Location", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :languages_spoken, "Languages Spoken", class: "text-muted" %>
+          <%= f.select :languages_spoken, options_from_collection_for_select(LANGUAGES_SPOKEN, :first, :last, selected: @profile.languages_spoken), {}, {multiple: true, size: 5, class: "form-control" } %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Save", class: "btn btn-lg btn-primary" %>
+          <%= f.submit "Save", class: "btn btn-primary" %>
         </div>
 
       <% end %>
