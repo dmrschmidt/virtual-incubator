@@ -5,7 +5,13 @@
           <div class="align-items-center justify-content-center text-center">
           <img src="<%= gravatar_url current_user, 200 %>" class="rounded-circle" width="100" height="100" alt="<%= current_user.full_name %> picture" /><br>
           Hey <strong><%= current_user.full_name %></strong>!<br>
-          <a href="https://en.gravatar.com/support/about-profiles/" target="_blank" class="gravatar font-weight-light">change your profile picture</a><br>
+          <a href="https://en.gravatar.com/support/about-profiles/" target="_blank" class="gravatar font-weight-light">
+            <svg class="bi bi-box-arrow-up-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M1.5 13A1.5 1.5 0 003 14.5h8a1.5 1.5 0 001.5-1.5V9a.5.5 0 00-1 0v4a.5.5 0 01-.5.5H3a.5.5 0 01-.5-.5V5a.5.5 0 01.5-.5h4a.5.5 0 000-1H3A1.5 1.5 0 001.5 5v8zm7-11a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v5a.5.5 0 01-1 0V2.5H9a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M14.354 1.646a.5.5 0 010 .708l-8 8a.5.5 0 01-.708-.708l8-8a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+            </svg>
+            change your profile picture
+          </a><br>
           </div>
         </div>
 
@@ -31,12 +37,49 @@
 
         <div class="field">
           <%= f.label :location, class: "sr-only" %>
-          <%= f.text_field :location, autocomplete: "country-name", placeholder: "Location", class: "form-control" %>
+          <%= f.country_select :location, , { include_blank: 'Select a country' }, { class: 'form-control' }) %>
         </div>
 
         <div class="form-group">
           <%= f.label :languages_spoken, "Languages Spoken", class: "text-muted" %>
           <%= f.select :languages_spoken, options_from_collection_for_select(LANGUAGES_SPOKEN, :first, :last, selected: @profile.languages_spoken), {}, {multiple: true, size: 5, class: "form-control" } %>
+        </div>
+
+        <div class="field">
+          <%= f.label :social_url_linkedin, class: "sr-only" %>
+          <%= f.text_field :social_url_linkedin, placeholder: "LinkedIn URL", class: "form-control" %>
+        </div>
+
+        <h5 class="pt-5 pb-2">Tell us more about your venture</h5>
+
+        <div class="field">
+          <%= f.label :venture_name, class: "sr-only" %>
+          <%= f.text_field :venture_name, placeholder: "Venture Name", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :website_url, class: "sr-only" %>
+          <%= f.text_field :website_url, placeholder: "venture website URL", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :venture_founded, class: "sr-only" %>
+          <%= f.text_field :venture_founded, placeholder: "Venture Founding Year", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :venture_description, class: "sr-only" %>
+          <%= f.text_area :venture_description, placeholder: "Tell us about your venture", rows: 5, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :team_size, "Team Size", class: "sr-only" %>
+          <%= f.select :team_size, options_from_collection_for_select(UserProfile.team_sizes, :first, :last, selected: @profile.team_size), {include_blank: "--- Team Size ---"}, {class: "form-control" } %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :operating_countries, "Operating Countries", class: "text-muted" %>
+          <%= f.country_select :operating_countries, {}, {multiple: true, size: 5, class: "form-control" } %>
         </div>
 
         <div class="actions">

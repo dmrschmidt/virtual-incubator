@@ -28,6 +28,9 @@ class UserProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:user_profile).permit(:job_title, :location, languages_spoken: [])
+      params.require(:user_profile).permit(:job_title, :location,
+        :venture_description, :social_url_linkedin, :website_url,
+        :venture_founded, :venture_name, :team_size,
+        operating_countries: [], languages_spoken: [])
     end
 end

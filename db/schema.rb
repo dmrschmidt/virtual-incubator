@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_082510) do
+ActiveRecord::Schema.define(version: 2020_04_21_121559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,15 @@ ActiveRecord::Schema.define(version: 2020_04_21_082510) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "location"
     t.string "languages_spoken", array: true
+    t.string "social_url_linkedin"
+    t.string "website_url"
+    t.string "venture_name"
+    t.string "venture_founded"
+    t.text "venture_description"
+    t.string "team_size"
+    t.string "operating_countries", array: true
     t.index ["languages_spoken"], name: "index_user_profiles_on_languages_spoken", using: :gin
+    t.index ["operating_countries"], name: "index_user_profiles_on_operating_countries", using: :gin
   end
 
   create_table "users", force: :cascade do |t|
