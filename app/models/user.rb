@@ -17,4 +17,12 @@ class User < ApplicationRecord
     !mentor?
   end
 
+  def role_select
+    role
+  end
+
+  def role_select=(new_role)
+    self.role = (new_role == 'mentor') ? 'mentor' : 'mentee'
+  end
+
 end

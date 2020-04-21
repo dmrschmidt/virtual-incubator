@@ -3,22 +3,41 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "new_user pill p-4" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <h2 class="mb-4">Sign up</h2>
+    <h2 class="mb-4">Sign up as a</h2>
 
-    <%= f.label :full_name, class: "sr-only" %>
-    <%= f.text_field :full_name, autofocus: true, autocomplete: "name", placeholder: "Full name", class: "form-control" %>
+    <div class="btn-group btn-block btn-group-toggle pb-4" data-toggle="buttons">
+      <label class="btn btn-info btn-lg role-select">
+        <%= f.radio_button :role_select, "mentee", class: "role-select" %>Startup
+      </label>
+      <label class="btn btn-info btn-lg role-select">
+        <%= f.radio_button :role_select, "mentor", class: "role-select" %> Mentor
+      </label>
+    </div>
 
-    <%= f.label :email, class: "sr-only" %>
-    <%= f.email_field :email, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
+    <script>
+      $(document).ready(function() {
+        $(".role-select").click(function() {
+          $(".second-phase").slideDown();
+        });
+      });
+    </script>
 
-    <%= f.label :password, class: "sr-only" %>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control initial" %>
+    <div class="second-phase">
+      <%= f.label :full_name, class: "sr-only" %>
+      <%= f.text_field :full_name, autofocus: true, autocomplete: "name", placeholder: "Full name", class: "form-control" %>
 
-    <%= f.label :password_confirmation, class: "sr-only" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "form-control confirmation" %>
+      <%= f.label :email, class: "sr-only" %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: "Email address", class: "form-control" %>
 
-    <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
+      <%= f.label :password, class: "sr-only" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control initial" %>
+
+      <%= f.label :password_confirmation, class: "sr-only" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "form-control confirmation" %>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
     </div>
 
     <%= render "devise/shared/links" %>
