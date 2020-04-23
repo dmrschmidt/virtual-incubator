@@ -13,22 +13,11 @@ class Question < ApplicationRecord
   end
 
   def tags
-    [Question.location.sample, Question.phase.sample, Question.industry.sample]
-  end
-
-  def self.tags
-    location + phase + industry
-  end
-
-  def self.location
-    ["Cairo, Egypt", "São Paulo, Brazil"]
-  end
-
-  def self.phase
-    ["pre-seed", "MVP", "Series-A"]
-  end
-
-  def self.industry
-    ["EdTech", "FinTech", "Healthcare"]
+    [
+      user.user_profile.venture_stage,
+      user.user_profile.location,
+      user.user_profile.industry,
+      user.user_profile.sdg_goal
+    ].compact
   end
 end

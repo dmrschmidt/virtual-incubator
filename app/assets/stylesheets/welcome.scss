@@ -6,24 +6,31 @@
   border-top: 1px solid lightgray;
 
   .header {
-    .profile {
-      float: left;
-      margin-right: 1rem;
-    }
-
     .details {
+      line-height: 1.1;
+
       .title {
+        color: #5A5555;
         font-size: 1.2rem;
+        font-weight: 400;
       }
 
-      .text-muted {
-        font-weight: 300;
+      .asked-at {
         font-size: 0.8rem;
+        font-weight: 100;
       }
     }
   }
 
-  .text {
-    clear: both;
+  .detail-link h5 {
+    color: #5A5555;
+    font-weight: 600;
+  }
+
+  .answers {
+    .counter {
+      font-weight: 100;
+      font-size: 0.9rem;
+    }
   }
 }
