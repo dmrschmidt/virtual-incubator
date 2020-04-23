@@ -24,7 +24,7 @@ class UserProfilesController < ApplicationController
 
   private
     def set_profile
-      @profile = UserProfile.where(user: current_user).first || UserProfile.new(user: current_user)
+      @profile = UserProfile.where(user: current_user).first
     end
 
     def profile_params
