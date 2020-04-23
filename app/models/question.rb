@@ -15,7 +15,7 @@ class Question < ApplicationRecord
   def tags
     [
       UserProfile.venture_stages[user.user_profile.venture_stage],
-      user.user_profile.location,
+      ISO3166::Country.find_country_by_alpha2(user.user_profile.location)&.translation('en'),
       UserProfile.industries[user.user_profile.industry],
       UserProfile.sdg_goals[user.user_profile.sdg_goal]
     ].compact
