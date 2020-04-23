@@ -52,7 +52,32 @@
             </div>
             <div class="answers pt-2">
               <span class="counter"><%= question.answers.count %> Answers</span>
+
               <hr class="mt-0">
+
+              <div class="container answers">
+                <% question.answers.each do |answer| %>
+                  <div class="row answer header mb-3">
+                    <div class="col-2 col-lg-1">
+                      <%= link_to answer.user.user_profile do %>
+                        <img src="<%= gravatar_url answer.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= answer.user.full_name %> picture" />
+                      <% end %>
+                    </div>
+
+                    <div class="col-10 col-lg-11">
+                      <div class="answer body p-1 pl-2 pb-2 pr-3">
+                        <div class="details pt-1">
+                          <%= link_to answer.user.user_profile do %>
+                            <span class="title"><%= full_title(answer.user) %></span>
+                          <% end %><br />
+                          <span class="asked-at text-muted">Answered <%= answer.created_at %></span>
+                        </div>
+                        <div class="text pt-2"><%= answer.text %></div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
               <%= link_to question_cta, question, class: "btn btn-sm btn-primary pink detail-link" %>
             </div>
           </div>
