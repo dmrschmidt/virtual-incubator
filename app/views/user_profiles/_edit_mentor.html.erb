@@ -1,36 +1,36 @@
 <div class="field">
-  <%= f.label :company_name, class: "sr-only" %>
+  <%= f.label :company_name, class: "text-muted" %>
   <%= f.text_field :company_name, placeholder: "Your company", class: "form-control" %>
 </div>
 
 <div class="field">
-  <%= f.label :company_website_url, class: "sr-only" %>
+  <%= f.label :company_website_url, class: "text-muted" %>
   <%= f.text_field :company_website_url, placeholder: "Your company's website", class: "form-control" %>
 </div>
 
 <div class="form-group">
-  <%= f.label :industry, "Industry", class: "sr-only" %>
+  <%= f.label :industry, "Industry", class: "text-muted" %>
   <%= f.select :industry, options_from_collection_for_select(UserProfile.industries, :first, :last, selected: @profile.industry), {include_blank: "--- Industry that best describes you ---"}, {class: "form-control" } %>
 </div>
 
 <h5 class="pt-5 pb-2">Tell us about your strengths</h5>
 
 <div class="field">
-  <%= f.label :profile_description, class: "sr-only" %>
+  <%= f.label :profile_description, "Describe yourself and your superpowers", class: "text-muted" %>
   <%= f.text_area :profile_description, placeholder: "Describe yourself and your superpowers", rows: 5, class: "form-control" %>
 </div>
 
 <div class="field">
-  <%= f.label :mentor_expertise, class: "sr-only" %>
+  <%= f.label :mentor_expertise, "What's your professional expertise?", class: "text-muted" %>
   <%= f.text_area :mentor_expertise, placeholder: "What's your professional expertise?", rows: 5, class: "form-control" %>
 </div>
 
 <div class="field">
-  <%= f.label :mentor_how_can_i_help, class: "sr-only" %>
+  <%= f.label :mentor_how_can_i_help, "How can you help startups?", class: "text-muted" %>
   <%= f.text_area :mentor_how_can_i_help, placeholder: "How can you help startups?", rows: 5, class: "form-control" %>
 </div>
 
 <div class="field">
-  <%= f.label :skills_csv, class: "sr-only" %>
+  <%= f.label :skills_csv, "Your Skills", class: "text-muted" %>
   <%= f.text_field :skills_csv, placeholder: "Your best skills (comma separated)", class: "form-control" %>
 </div>

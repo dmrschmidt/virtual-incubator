@@ -38,12 +38,12 @@
         </div>
 
         <div class="field">
-          <%= f.label :job_title, class: "sr-only" %>
+          <%= f.label :job_title, class: "text-muted" %>
           <%= f.text_field :job_title, autofocus: true, placeholder: "Job Title", class: "form-control" %>
         </div>
 
         <div class="field">
-          <%= f.label :location, class: "sr-only" %>
+          <%= f.label :location, class: "text-muted" %>
           <%= f.country_select :location, { include_blank: '--- Select a country ---' }, { class: 'form-control' } %>
         </div>
 
@@ -53,7 +53,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :social_url_linkedin, class: "sr-only" %>
+          <%= f.label :social_url_linkedin, "LinkedIn URL", class: "text-muted" %>
           <%= f.text_field :social_url_linkedin, placeholder: "LinkedIn URL", class: "form-control" %>
         </div>
 
