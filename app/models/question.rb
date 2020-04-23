@@ -14,10 +14,10 @@ class Question < ApplicationRecord
 
   def tags
     [
-      user.user_profile.venture_stage,
+      UserProfile.venture_stages[user.user_profile.venture_stage],
       user.user_profile.location,
-      user.user_profile.industry,
-      user.user_profile.sdg_goal
+      UserProfile.industries[user.user_profile.industry],
+      UserProfile.sdg_goals[user.user_profile.sdg_goal]
     ].compact
   end
 end
