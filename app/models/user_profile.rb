@@ -31,4 +31,34 @@ class UserProfile < ApplicationRecord
       ['need-more-info', 'Wir brauchen noch die anderen Industrien'],
     ]
   end
+
+  def self.venture_stages
+    [
+      ['pre-mvp', 'Pre MVP'],
+      ['mvp', 'MVP'],
+      ['series-a', 'Series A']
+    ]
+  end
+
+  def self.sdg_goals
+    [
+      ['no-poverty', 'No Poverty'],
+      ['zero-hunger', 'Zero Hunger'],
+      ['good-health', 'Good Health and Well-being'],
+      ['quality-education', 'Quality Education'],
+      ['gender-equality', 'Gender Equality'],
+      ['clean-water', 'Clean Water and Sanitation'],
+      ['clean-energy', 'Affordable and Clean Energy'],
+      ['decent-work', 'Decent Work and Economic Growth'],
+      ['industry-innovation', 'Industry, Innovation and Infrastructure'],
+      ['reduced-inequality', 'Reduced Inequality'],
+      ['sustainable-cities', 'Sustainable Cities and Communities'],
+      ['responsible-consumption', 'Responsible Consumption and Production'],
+      ['climate-action', 'Climate Action'],
+      ['life-water', 'Life Below Water'],
+      ['life-land', 'Life on Land'],
+      ['peace-justice', 'Peace and Justice Strong Institutions'],
+      ['partnerships', 'Partnerships to achieve the Goal'],
+    ]
+  end
 end

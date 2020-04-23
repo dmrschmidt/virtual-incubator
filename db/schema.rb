@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_085051) do
+ActiveRecord::Schema.define(version: 2020_04_23_095304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 2020_04_23_085051) do
     t.text "mentor_how_can_i_help"
     t.string "industry"
     t.string "skills", array: true
+    t.text "team_description"
+    t.string "venture_stage"
+    t.string "sdg_goal"
     t.index ["languages_spoken"], name: "index_user_profiles_on_languages_spoken", using: :gin
     t.index ["operating_countries"], name: "index_user_profiles_on_operating_countries", using: :gin
   end

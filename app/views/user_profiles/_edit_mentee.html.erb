@@ -1,6 +1,11 @@
 <h5 class="pt-5 pb-2">Tell us more about your venture</h5>
 
 <div class="field">
+  <%= f.label :team_description, class: "sr-only" %>
+  <%= f.text_area :team_description, placeholder: "Your profile / Team description", rows: 5, class: "form-control" %>
+</div>
+
+<div class="field">
   <%= f.label :company_name, class: "sr-only" %>
   <%= f.text_field :company_name, placeholder: "Venture Name", class: "form-control" %>
 </div>
@@ -18,6 +23,21 @@
 <div class="field">
   <%= f.label :venture_description, class: "sr-only" %>
   <%= f.text_area :venture_description, placeholder: "Tell us about your venture", rows: 5, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :venture_stage, "Current Stage", class: "sr-only" %>
+  <%= f.select :venture_stage, options_from_collection_for_select(UserProfile.venture_stages, :first, :last, selected: @profile.venture_stage), {include_blank: "--- Your venture's current stage ---"}, {class: "form-control" } %>
+</div>
+
+<div class="form-group">
+  <%= f.label :sdg_goal, "Current Stage", class: "sr-only" %>
+  <%= f.select :sdg_goal, options_from_collection_for_select(UserProfile.sdg_goals, :first, :last, selected: @profile.sdg_goal), {include_blank: "--- Your main SDG goal ---"}, {class: "form-control" } %>
+</div>
+
+<div class="form-group">
+  <%= f.label :industry, "Industry", class: "sr-only" %>
+  <%= f.select :industry, options_from_collection_for_select(UserProfile.industries, :first, :last, selected: @profile.industry), {include_blank: "--- Industry best describing your venture ---"}, {class: "form-control" } %>
 </div>
 
 <div class="form-group">
