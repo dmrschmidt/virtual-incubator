@@ -10,4 +10,8 @@ module WelcomeHelper
     title = "#{title} @ #{user.user_profile.company_name}" unless user.user_profile.company_name.blank?
     title
   end
+
+  def question_cta
+    current_user.mentor? ? "Write an answer" : "View answers"
+  end
 end
