@@ -11,7 +11,7 @@
     <% @questions.each do |question| %>
       <div class="question pill p-2 mb-4">
         <div class="row header">
-          <div class="col-2 col-lg-1 text-center justify-content-center">
+          <div class="col-2 col-lg-1">
             <%= link_to question.user.user_profile do %>
               <img src="<%= gravatar_url question.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= question.user.full_name %> picture" />
             <% end %>
@@ -26,7 +26,21 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-2 col-lg-1"></div>
+          <div class="col-2 col-lg-1 d-flex align-items-end flex-column pr-0 pt-3">
+            <div class="voting text-pink">
+              <a class="vote up">
+                <svg class="bi bi-caret-up-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 00.753-1.659l-4.796-5.48a1 1 0 00-1.506 0z"/>
+                </svg>
+              </a>
+              <div class="count">12</div>
+              <a class="vote down">
+                <svg class="bi bi-caret-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 001.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 00-.753 1.659z" clip-rule="evenodd"/>
+                </svg>
+              </a>
+            </div>
+          </div>
           <div class="col-10 col-lg-11">
             <div class="text">
               <%= link_to question, class: "detail-link" do %>
