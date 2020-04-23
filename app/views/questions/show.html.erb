@@ -8,6 +8,12 @@
   <p>
     <%= @question.current_challenges %>
   </p>
+  <p>
+    <%= @question.actions_taken %>
+  </p>
+  <p>
+    <%= @question.skills_needed_csv %>
+  </p>
   <div class="asker">
     <strong>asked by:</strong>
     <%= @question.user.full_name %>
