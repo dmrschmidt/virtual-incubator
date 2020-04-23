@@ -17,7 +17,7 @@
       <tr>
         <td><%= question.user_id %></td>
         <td><%= question.title %></td>
-        <td><%= question.text %></td>
+        <td><%= question.current_challenges %></td>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>

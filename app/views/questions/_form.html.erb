@@ -12,13 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title, class: "sr-only" %>
-    <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+    <%= form.label :title, "What exactly do you need help with?", class: "text-muted" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Define Question / Problem statement" %>
   </div>
 
   <div class="field">
-    <%= form.label :text, class: "sr-only" %>
-    <%= form.text_area :text, class: "form-control", placeholder: "Your Question", rows: "10"  %>
+    <%= form.label :current_challenges, "What are your current challenges?", class: "text-muted" %>
+    <%= form.text_area :current_challenges, class: "form-control", placeholder: "Describe your challenges", rows: "5"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :actions_taken, "Which actions have you taken so far?", class: "text-muted" %>
+    <%= form.text_area :actions_taken, class: "form-control", placeholder: "Describe actions", rows: "5"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :skills_needed_csv, "What expertise/ skills do you need from mentors?", class: "text-muted" %>
+    <%= form.text_area :skills_needed_csv, class: "form-control", placeholder: "Type keywords (comma separated)", rows: "5"  %>
   </div>
 
   <div class="actions">

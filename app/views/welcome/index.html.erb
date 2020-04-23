@@ -32,7 +32,7 @@
           </div>
           <div class="text">
             <strong><%= question.title %></strong><br />
-            <%= truncate(question.text, length: 50) %><br />
+            <%= truncate(question.current_challenges, length: 50) %><br />
             <%= link_to 'Find out more', question %><br />
             <% question.tags.each do |tag| %>
               <span class="badge badge-pill badge-primary"><%= tag %></span>
