@@ -26,17 +26,33 @@ class UserProfile < ApplicationRecord
 
   def self.industries
     [
-      ['pharma', 'Pharma'],
-      ['agriculture', 'Agriculture'],
-      ['need-more-info', 'Wir brauchen noch die anderen Industrien'],
+      ['agriculture', 'Agriculture and Food'],
+      ['arts', 'Arts/ Media/ Entertainment'],
+      ['consultancy', 'Consultancy Services'],
+      ['education', 'Education Services'],
+      ['energy', 'Energy, Oil and Gas'],
+      ['finance-insurance', 'Finance and Insurance'],
+      ['health-social', 'Health and Social Care'],
+      ['hospitality/travel', 'Hospitality, Travel and Transport'],
+      ['internet', 'Internet Technology'],
+      ['manufacturing', 'Manufacturing'],
+      ['real-estate', 'Real Estate'],
+      ['retail', 'Retail, Wholesale and E-commerce'],
+      ['telecommunication', 'Telecommunication'],
+      ['waste', 'Waste Management'],
     ]
   end
 
   def self.venture_stages
     [
-      ['pre-mvp', 'Pre MVP'],
-      ['mvp', 'MVP'],
-      ['series-a', 'Series A']
+      ['ideation', 'Ideation Stage'],
+      ['mvp', 'MVP Stage'],
+      ['market-validation', 'Market validation/ Paying customers'],
+      ['growth', 'Growth Stage'],
+      ['seed-funding', 'Seed funding'],
+      ['series-a', 'Series A'],
+      ['series-b', 'Series B'],
+      ['series-c', 'Series C'],
     ]
   end
 
