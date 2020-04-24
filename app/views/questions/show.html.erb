@@ -1,16 +1,20 @@
-<div class="row isolated header mb-3">
+<div class="row isolated header mb-1">
   <div class="col-2 col-lg-1">
     <%= link_to @question.user.user_profile, class: "pl-3" do %>
       <img src="<%= gravatar_url @question.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= @question.user.full_name %> picture" />
     <% end %>
   </div>
-  <div class="col-10 col-lg-11">
+  <div class="col-10">
     <div class="details pt-1">
       <%= link_to @question.user.user_profile do %>
         <span class="title"><%= full_title(@question.user) %></span>
       <% end %><br />
       <span class="asked-at">Asked <%= @question.created_at %></span>
     </div>
+  </div>
+  <div class="col-1 text-white text-center">
+    <h2 class="answer-counter pt-3"><%= @question.answers.count %></h2>
+    <span class="subtitle">Answers</span>
   </div>
 </div>
 
