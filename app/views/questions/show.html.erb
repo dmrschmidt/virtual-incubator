@@ -4,7 +4,7 @@
       <img src="<%= gravatar_url @question.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= @question.user.full_name %> picture" />
     <% end %>
   </div>
-  <div class="col-10">
+  <div class="col-7 col-lg-9">
     <div class="details pt-1">
       <%= link_to @question.user.user_profile do %>
         <span class="title"><%= full_title(@question.user) %></span>
@@ -12,7 +12,7 @@
       <span class="asked-at">Asked <%= @question.created_at %></span>
     </div>
   </div>
-  <div class="col-1 text-white text-center">
+  <div class="col-3 col-lg-2 text-white text-center">
     <h2 class="answer-counter pt-3"><%= @question.answers.count %></h2>
     <span class="subtitle">Answers</span>
   </div>
