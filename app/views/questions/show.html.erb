@@ -34,15 +34,21 @@
     <div class="col-10 col-lg-11">
       <div class="details">
         <h5><%= @question.title %></h5>
+        <% @question.tags.each do |tag| %>
+          <span class="badge badge-pill badge-primary pink-light"><%= tag %></span>
+        <% end %>
         <h6>What are your current challenges?</h6>
         <p class="text"><%= @question.current_challenges %></p>
         <h6>Which actions have you taken so far?</h6>
         <p class="text"><%= @question.actions_taken %></p>
         <h6>What expertise/ skills do you need from mentors?</h6>
         <p class="text"><%= @question.skills_needed_csv %></p>
-        <% @question.tags.each do |tag| %>
-          <span class="badge badge-pill badge-primary pink-light"><%= tag %></span>
-        <% end %>
+      </div>
+
+      <hr>
+
+      <div class="answer-form">
+        <%= render 'answers/form', answer: @answer, question: @question %>
       </div>
     </div>
   </div>
@@ -50,7 +56,7 @@
 
 <div class="answers">
 
-  <% @question.answers.each do |answer| %>
+  <% @question.answers.order(created_at: :desc).each do |answer| %>
 
     <div class="row answer header mb-3">
       <div class="col-sm-11 offset-sm-1">
@@ -59,10 +65,28 @@
 
           <div class="row">
 
-            <div class="col-2 col-lg-1 pt-2">
-              <%= link_to answer.user.user_profile do %>
+            <div class="col-2 col-lg-1 pr-0 pt-2">
+              <%= link_to answer.user.user_profile, class: "pl-3" do %>
                 <img src="<%= gravatar_url answer.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= answer.user.full_name %> picture" />
               <% end %>
+
+              <div class="d-flex align-items-end flex-column pr-0 pt-3">
+
+                <div class="voting text-pink">
+                  <a class="vote up">
+                    <svg class="bi bi-caret-up-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 00.753-1.659l-4.796-5.48a1 1 0 00-1.506 0z"/>
+                    </svg>
+                  </a>
+                  <div class="count">12</div>
+                  <a class="vote down">
+                    <svg class="bi bi-caret-down" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 001.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 00-.753 1.659z" clip-rule="evenodd"/>
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
             </div>
 
             <div class="col-10 col-lg-11">
@@ -84,13 +108,5 @@
       </div>
     </div>
   <% end %>
-
-  <div class="row mb-3">
-    <div class="col-sm-11 offset-sm-1">
-      <div class="pill p-3">
-        <%= render 'answers/form', answer: @answer, question: @question %>
-      </div>
-    </div>
-  </div>
 
 </div>
