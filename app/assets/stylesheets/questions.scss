@@ -6,16 +6,76 @@
   font-size: 0.3em;
 }
 
-.answer {
-  .body {
-    background-color: #f7f7f7;
-    border-radius: 10px;
+.answers.overview {
+  .answer {
+    .body {
+      background-color: #f7f7f7;
+      border-radius: 10px;
+    }
+  }
+}
 
-    .text {
+.question {
+  .details {
+    h6 {
+      font-weight: 600;
+      margin-top: 1.3rem;
+      margin-bottom: 0.1rem;
+    }
+
+    p.text {
       font-weight: 300;
     }
   }
 }
+
+.answer.header {
+  .details {
+    line-height: 1.1;
+
+    .title {
+      color: #5A5555;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .asked-at {
+      font-size: 0.8rem;
+      font-weight: 100;
+    }
+  }
+}
+
+.isolated.header {
+  .details {
+    line-height: 1.1;
+
+    .title {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .asked-at {
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 100;
+    }
+  }
+}
+
+
+.detail-link h5 {
+  color: #5A5555;
+  font-weight: 600;
+}
+
+.body {
+  .text {
+    font-weight: 300;
+  }
+}
+
 
 .video {
   float: right;
