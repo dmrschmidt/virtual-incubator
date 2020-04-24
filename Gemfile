@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 gem 'devise'
+gem 'betterlorem'
 
 gem 'country_select', '~> 4.0'
 

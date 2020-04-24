@@ -16,12 +16,12 @@
       <img src="<%= gravatar_url current_user, 100 %>" class="rounded-circle profile" width="40" height="40" alt="<%= current_user.full_name %> picture" />
     </div>
 
-    <div class="form-group col-12 col-md-9">
+    <div class="form-group col-md-9">
       <%= form.label :text, class: "sr-only" %>
       <%= form.text_area :text, class: "form-control", placeholder: "Write your answer here", rows: "1" %>
     </div>
 
-    <div class="form-group col-12 col-md-2 actions">
+    <div class="form-group col-md-2 actions">
       <%= form.submit "Reply", class: "btn btn-primary btn-block pink" %>
     </div>
     <%= form.hidden_field :question_id, value: @question.id %>
