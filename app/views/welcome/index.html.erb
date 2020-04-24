@@ -58,9 +58,9 @@
               <div class="container answers overview">
                 <% question.answers.each do |answer| %>
                   <div class="row answer header mb-3">
-                    <div class="col-2 col-lg-1">
+                    <div class="col-2 col-lg-1 px-0 pt-2">
                       <%= link_to answer.user.user_profile do %>
-                        <img src="<%= gravatar_url answer.user, 100 %>" class="rounded-circle profile" width="50" height="50" alt="<%= answer.user.full_name %> picture" />
+                        <img src="<%= gravatar_url answer.user, 100 %>" class="rounded-circle profile img-fluid" width="50" height="50" alt="<%= answer.user.full_name %> picture" />
                       <% end %>
                     </div>
 
