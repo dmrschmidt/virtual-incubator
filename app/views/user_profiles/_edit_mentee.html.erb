@@ -31,8 +31,8 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :sdg_goal, "Current Stage", class: "text-muted" %>
-  <%= f.select :sdg_goal, options_from_collection_for_select(UserProfile.sdg_goals.to_a, :first, :last, selected: @profile.sdg_goal), {include_blank: "--- Your main SDG goal ---"}, {class: "form-control" } %>
+  <%= f.label :sdg_goal, "SDG Focus", class: "text-muted" %>
+  <%= f.select :sdg_goal, options_from_collection_for_select(UserProfile.sdg_goals.to_a, :first, :last, selected: @profile.sdg_goal), {include_blank: "--- Your main SDG focus ---"}, {class: "form-control" } %>
 </div>
 
 <div class="form-group">
