@@ -1,7 +1,8 @@
 class UserProfilesController < ApplicationController
-  before_action :set_profile
+  before_action :set_profile, only: [:edit, :new, :update]
 
   def show
+    @profile = UserProfile.where(id: params[:id]).first
   end
 
   def edit
