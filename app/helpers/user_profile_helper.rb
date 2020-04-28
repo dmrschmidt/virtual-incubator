@@ -1,4 +1,17 @@
 module UserProfileHelper
+  def can_call(mentee, mentor)
+    mentee_mentor = mentee.mentee? && mentor.mentor?
+    mentee_mentor && has_any_answers(mentee, mentor)
+  end
+
+  def has_any_answers(asker, answerer)
+    asker.questions.any? do |q|
+      q.answers.any? do |a|
+        a.user == answerer
+      end
+    end
+  end
+
   def available(value)
     value.blank? ? 'n/a' : value
   end
