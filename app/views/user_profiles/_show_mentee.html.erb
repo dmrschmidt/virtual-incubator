@@ -1,0 +1,109 @@
+<div class="row profile-show">
+  <div class="col-md-3">
+    <div class="mb-4 p-4 pill">
+      <div class="d-flex justify-content-center">
+        <div class="align-items-center justify-content-center text-center">
+          <img src="<%= gravatar_url @profile.user, 200 %>" class="rounded-circle img-fluid pb-3" width="100" height="100" alt="<%= @profile.user.full_name %> picture" /><br>
+          <strong><%= @profile.user.full_name %></strong><br>
+          <span><%= @profile.job_title %></span>
+          <span><%= "from #{location(@profile.location)}" unless @profile.location.blank? %></span>
+
+          <hr>
+          <strong>Languages Spoken</strong><br>
+          <%= languages(@profile.languages_spoken) %>
+
+          <hr>
+          <strong>Operating Countries</strong><br>
+          <%= countries(@profile.operating_countries) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col venture-name">
+        <div class="mb-3">
+          <h5>
+            <% if @profile.company_website_url %>
+              <%= link_to @profile.company_website_url, target: '_blank' do %>
+                <svg class="bi bi-box-arrow-up-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M1.5 13A1.5 1.5 0 003 14.5h8a1.5 1.5 0 001.5-1.5V9a.5.5 0 00-1 0v4a.5.5 0 01-.5.5H3a.5.5 0 01-.5-.5V5a.5.5 0 01.5-.5h4a.5.5 0 000-1H3A1.5 1.5 0 001.5 5v8zm7-11a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v5a.5.5 0 01-1 0V2.5H9a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+                  <path fill-rule="evenodd" d="M14.354 1.646a.5.5 0 010 .708l-8 8a.5.5 0 01-.708-.708l8-8a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+                </svg>
+                <%= @profile.company_name %>
+              <% end %>
+            <% else %>
+              <%= @profile.company_name %>
+            <% end %>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col">
+        <div class="pill venture-data p-3">
+          <div class="row align-items-end">
+            <div class="col-sm-6 col-md-4 col-lg-2 text-center">
+              <span class="value"><%= venture_founded(@profile.venture_founded) %></span>
+              <span class="type">Founded</span>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 text-center">
+              <span class="value"><%= venture_stage(@profile.venture_stage) %></span>
+              <span class="type">Stage</span>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 text-center">
+              <span class="value"><%= team_size(@profile.team_size) %></span>
+              <span class="type">Employees</span>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 text-center">
+              <span class="value"><%= industry(@profile.industry) %></span>
+              <span class="type">Industry</span>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-2 text-center">
+              <span class="value"><%= sdg(@profile.sdg_goal) %></span>
+              <span class="type">SDG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="pill venture-content p-3">
+
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#about-team" role="tab" aria-controls="about-team" aria-selected="true">About Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#about-venture" role="tab" aria-controls="about-venture" aria-selected="false">About Venture</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            </li>
+          </ul>
+          <div class="tab-content p-3" id="myTabContent">
+            <div class="tab-pane fade show active" id="about-team" role="tabpanel" aria-labelledby="home-tab">
+              <%= @profile.team_description %>
+            </div>
+            <div class="tab-pane fade" id="about-venture" role="tabpanel" aria-labelledby="profile-tab">
+              <%= @profile.venture_description %>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <% if @profile.social_url_linkedin %>
+                <%= link_to @profile.social_url_linkedin do %>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  LinkedIn
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
