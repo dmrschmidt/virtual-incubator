@@ -15,15 +15,15 @@
           </div>
         </div>
 
-      <%= form_with(model: @profile, local: true) do |f| %>
+      <%= form_with(model: @user_profile, local: true) do |f| %>
         <h5 class="pt-3 pb-2">Tell us more about yourself</h5>
 
-        <% if @profile.errors.any? %>
+        <% if @user_profile.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+            <h2><%= pluralize(@user_profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
             <ul>
-              <% @profile.errors.full_messages.each do |message| %>
+              <% @user_profile.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
               <% end %>
             </ul>
@@ -49,7 +49,7 @@
 
         <div class="form-group">
           <%= f.label :languages_spoken, "Languages Spoken", class: "text-muted" %>
-          <%= f.select :languages_spoken, options_from_collection_for_select(LANGUAGES_SPOKEN, :first, :last, selected: @profile.languages_spoken), {}, {multiple: true, size: 5, class: "form-control" } %>
+          <%= f.select :languages_spoken, options_from_collection_for_select(LANGUAGES_SPOKEN, :first, :last, selected: @user_profile.languages_spoken), {}, {multiple: true, size: 5, class: "form-control" } %>
         </div>
 
         <div class="field">

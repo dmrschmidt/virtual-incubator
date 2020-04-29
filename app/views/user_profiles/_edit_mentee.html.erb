@@ -27,22 +27,22 @@
 
 <div class="form-group">
   <%= f.label :venture_stage, "Current Stage", class: "text-muted" %>
-  <%= f.select :venture_stage, options_from_collection_for_select(UserProfile.venture_stages.to_a, :first, :last, selected: @profile.venture_stage), {include_blank: "--- Your venture's current stage ---"}, {class: "form-control" } %>
+  <%= f.select :venture_stage, options_from_collection_for_select(UserProfile.venture_stages.to_a, :first, :last, selected: @user_profile.venture_stage), {include_blank: "--- Your venture's current stage ---"}, {class: "form-control" } %>
 </div>
 
 <div class="form-group">
   <%= f.label :sdg_goal, "SDG Focus", class: "text-muted" %>
-  <%= f.select :sdg_goal, options_from_collection_for_select(UserProfile.sdg_goals.to_a, :first, :last, selected: @profile.sdg_goal), {include_blank: "--- Your main SDG focus ---"}, {class: "form-control" } %>
+  <%= f.select :sdg_goal, options_from_collection_for_select(UserProfile.sdg_goals.to_a, :first, :last, selected: @user_profile.sdg_goal), {include_blank: "--- Your main SDG focus ---"}, {class: "form-control" } %>
 </div>
 
 <div class="form-group">
   <%= f.label :industry, "Industry", class: "text-muted" %>
-  <%= f.select :industry, options_from_collection_for_select(UserProfile.industries.to_a, :first, :last, selected: @profile.industry), {include_blank: "--- Industry best describing your venture ---"}, {class: "form-control" } %>
+  <%= f.select :industry, options_from_collection_for_select(UserProfile.industries.to_a, :first, :last, selected: @user_profile.industry), {include_blank: "--- Industry best describing your venture ---"}, {class: "form-control" } %>
 </div>
 
 <div class="form-group">
   <%= f.label :team_size, "Team Size", class: "text-muted" %>
-  <%= f.select :team_size, options_from_collection_for_select(UserProfile.team_sizes.to_a, :first, :last, selected: @profile.team_size), {include_blank: "--- Team Size ---"}, {class: "form-control" } %>
+  <%= f.select :team_size, options_from_collection_for_select(UserProfile.team_sizes.to_a, :first, :last, selected: @user_profile.team_size), {include_blank: "--- Team Size ---"}, {class: "form-control" } %>
 </div>
 
 <div class="form-group">

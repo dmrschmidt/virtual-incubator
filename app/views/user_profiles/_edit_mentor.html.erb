@@ -10,7 +10,7 @@
 
 <div class="form-group">
   <%= f.label :industry, "Industry", class: "text-muted" %>
-  <%= f.select :industry, options_from_collection_for_select(UserProfile.industries, :first, :last, selected: @profile.industry), {include_blank: "--- Industry that best describes you ---"}, {class: "form-control" } %>
+  <%= f.select :industry, options_from_collection_for_select(UserProfile.industries, :first, :last, selected: @user_profile.industry), {include_blank: "--- Industry that best describes you ---"}, {class: "form-control" } %>
 </div>
 
 <h5 class="pt-5 pb-2">Tell us about your strengths</h5>
