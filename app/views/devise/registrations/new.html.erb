@@ -22,7 +22,7 @@
       });
     </script>
 
-    <div class="second-phase">
+    <div class="second-phase" style="display: <%= resource.errors.any? ? "block" : "none" %>;">
       <%= f.label :full_name, class: "sr-only" %>
       <%= f.text_field :full_name, autofocus: true, autocomplete: "name", placeholder: "Full name", class: "form-control" %>
 

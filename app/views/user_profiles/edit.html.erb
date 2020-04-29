@@ -19,7 +19,7 @@
         <h5 class="pt-3 pb-2">Tell us more about yourself</h5>
 
         <% if @user_profile.errors.any? %>
-          <div id="error_explanation">
+          <div id="error_explanation" class="alert alert-danger" role="alert">
             <h2><%= pluralize(@user_profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
             <ul>
