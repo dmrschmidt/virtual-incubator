@@ -12,6 +12,12 @@ module UserProfileHelper
     end
   end
 
+  def profile_completion_percentage(user)
+    fields = profile_fields[:common] + profile_fields[user.role.to_sym]
+    filled = fields.filter { |f| user.user_profile.send(f).present? }
+    ((filled.count / fields.count.to_f) * 100).round.to_i
+  end
+
   def available(value)
     value.blank? ? 'n/a' : value
   end
@@ -52,5 +58,37 @@ module UserProfileHelper
 
   def non_empty(values)
     values&.reject { |v| v.blank? } || []
+  end
+
+  def profile_fields
+    {
+      common: %i[
+        job_title
+        location
+        languages_spoken
+        social_url_linkedin
+      ],
+      mentee: %i[
+        team_description
+        company_name
+        company_website_url
+        venture_founded
+        venture_description
+        venture_stage
+        sdg_goal
+        industry
+        team_size
+        operating_countries
+      ],
+      mentor: %i[
+        company_name
+        company_website_url
+        industry
+        profile_description
+        mentor_expertise
+        mentor_how_can_i_help
+        skills
+      ]
+    }
   end
 end
