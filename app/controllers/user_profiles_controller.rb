@@ -27,6 +27,7 @@ class UserProfilesController < ApplicationController
       :venture_founded, :company_name, :team_size, :industry,
       :profile_description, :mentor_how_can_i_help, :mentor_expertise,
       :skills_csv, :team_description, :venture_stage, :sdg_goal,
+      :meeting_schedule_url,
       operating_countries: [], languages_spoken: [])
   end
 end

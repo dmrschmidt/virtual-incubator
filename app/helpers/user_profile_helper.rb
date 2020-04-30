@@ -82,6 +82,7 @@ module UserProfileHelper
         operating_countries
       ],
       mentor: %i[
+        meeting_schedule_url
         company_name
         company_website_url
         industry

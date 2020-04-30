@@ -3,7 +3,7 @@ class UserProfile < ApplicationRecord
   delegate :email, to: :user
   delegate :full_name, to: :user
 
-  validates_each :company_website_url, :social_url_linkedin do |record, attr, value|
+  validates_each :company_website_url, :social_url_linkedin, :meeting_schedule_url do |record, attr, value|
     URI(value).normalize unless value.nil?
   rescue StandardError
     record.errors.add(attr, 'must be valid uri')
