@@ -1,6 +1,7 @@
 class UserProfile < ApplicationRecord
   belongs_to :user
   delegate :email, to: :user
+  delegate :full_name, to: :user
 
   validates_each :company_website_url, :social_url_linkedin do |record, attr, value|
     URI(value).normalize unless value.nil?

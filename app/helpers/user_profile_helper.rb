@@ -14,6 +14,7 @@ module UserProfileHelper
 
   def profile_completion_percentage(user)
     fields = profile_fields[:common] + profile_fields[user.role.to_sym]
+    fields += %i[email full_name] # so we never reach 0% and get display issues
     filled = fields.filter { |f| user.user_profile.send(f).present? }
     ((filled.count / fields.count.to_f) * 100).round.to_i
   end
