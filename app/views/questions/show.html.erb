@@ -112,7 +112,7 @@
                   </div>
                   <div class="col-lg-4 d-flex flex-column align-items-lg-end">
                     <% if can_call(current_user, answer.user) %>
-                      <%= render partial: 'shared/request_call_cta' %>
+                      <%= render partial: 'shared/request_call_cta', locals: { mentor_profile: answer.user.user_profile } %>
                     <% end %>
                   </div>
                 </div>

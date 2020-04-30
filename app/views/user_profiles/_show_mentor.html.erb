@@ -56,7 +56,7 @@
             </div>
             <% if can_call(current_user, @user_profile.user) %>
               <div class="col-sm-6 col-lg-3 text-center">
-                <%= render partial: 'shared/request_call_cta' %>
+                <%= render partial: 'shared/request_call_cta', locals: { mentor_profile: @user_profile } %>
               </div>
             <% end %>
           </div>

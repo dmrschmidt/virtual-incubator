@@ -1,7 +1,8 @@
 module UserProfileHelper
   def can_call(mentee, mentor)
     mentee_mentor = mentee.mentee? && mentor.mentor?
-    mentee_mentor && has_any_answers(mentee, mentor)
+    has_schedule_link = mentor.user_profile.meeting_schedule_url.present?
+    mentee_mentor && has_schedule_link && has_any_answers(mentee, mentor)
   end
 
   def has_any_answers(asker, answerer)
