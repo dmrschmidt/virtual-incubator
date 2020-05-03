@@ -60,6 +60,14 @@
           <img src="<%= gravatar_url current_user, 60 %>" class="rounded-circle d-none d-md-block" width="30" height="30" alt="<%= current_user.full_name %> picture" />
         <% end %>
       </div>
+    <% else %>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to('Log in', new_user_session_path, class: "nav-link") %>
+          </li>
+        </ul>
+      </div>
     <% end %>
   </nav>
 </header>
