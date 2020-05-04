@@ -14,12 +14,8 @@ body.landing {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  //position: absolute;
-  //top: 0;
-  //left: 0;
-  //min-width: 100%;
-  height: 32rem;
-  margin-top: -2rem;
+  height: 35rem;
+  margin-top: -3rem;
 }
 
 
@@ -52,6 +48,11 @@ body.landing {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -.05rem;
+}
+
+.featurette ul {
+  font-weight: 100;
+  font-size: 1.25rem;
 }
 
 
